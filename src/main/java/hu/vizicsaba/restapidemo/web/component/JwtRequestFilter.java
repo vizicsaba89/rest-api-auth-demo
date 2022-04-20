@@ -13,9 +13,11 @@ import org.springframework.web.filter.OncePerRequestFilter;
 
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.Arrays;
 
 @Service
 @Log4j2
@@ -38,15 +40,21 @@ public class JwtRequestFilter extends OncePerRequestFilter {
         if (requestTokenHeader != null && requestTokenHeader.startsWith("Bearer ")) {
             jwtToken = requestTokenHeader.substring(7);
 
-            try {
-                username = jwtTokenService.getUserNameFromToken(jwtToken);
-            } catch (IllegalArgumentException e) {
-                log.error("Unable to get JWT Token");
-            } catch (ExpiredJwtException e) {
-                log.error("JWT Token has expired");
-            }
+            username = getUserNameFromToken(username, jwtToken);
         } else {
-            log.error("JWT Token does not begin with Bearer String");
+            log.error("JWT Token does not exists in header, checking cookies");
+
+            final Cookie[] cookies = httpServletRequest.getCookies();
+
+            if (cookies != null) {
+                jwtToken = Arrays.stream(cookies)
+                    .filter(cookie -> cookie.getName().equals("token"))
+                    .findFirst()
+                    .map(Cookie::getValue)
+                    .orElse(null);
+
+                username = getUserNameFromToken(username, jwtToken);
+            }
         }
 
         if (username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
@@ -60,7 +68,20 @@ public class JwtRequestFilter extends OncePerRequestFilter {
                 SecurityContextHolder.getContext().setAuthentication(usernamePasswordAuthenticationToken);
             }
         }
+
         filterChain.doFilter(httpServletRequest, httpServletResponse);
+    }
+
+    private String getUserNameFromToken(String username, String jwtToken) {
+        try {
+            username = jwtTokenService.getUserNameFromToken(jwtToken);
+        } catch (IllegalArgumentException e) {
+            log.error("Unable to get JWT Token");
+        } catch (ExpiredJwtException e) {
+            log.error("JWT Token has expired");
+        }
+
+        return username;
     }
 
 }
