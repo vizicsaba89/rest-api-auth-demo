@@ -102,7 +102,7 @@ public class User implements Serializable {
     @OneToMany(
         mappedBy = "user",
         cascade = CascadeType.ALL,
-        fetch = FetchType.LAZY
+        fetch = FetchType.EAGER
     )
     private List<UserRoles> userRoles;
 

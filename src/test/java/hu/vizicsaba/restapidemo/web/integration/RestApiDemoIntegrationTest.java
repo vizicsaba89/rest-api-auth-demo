@@ -39,28 +39,28 @@ public class RestApiDemoIntegrationTest {
         mockMvc
             .perform(
                 MockMvcRequestBuilders
-                .get("/user")
+                .get("/users")
             )
             .andExpect(status().isForbidden());
 
         mockMvc
             .perform(
                 MockMvcRequestBuilders
-                .get("/user/1")
+                .get("/users/1")
             )
             .andExpect(status().isForbidden());
 
         mockMvc
             .perform(
                 MockMvcRequestBuilders
-                .post("/user")
+                .post("/users")
             )
             .andExpect(status().isForbidden());
 
         mockMvc
             .perform(
                 MockMvcRequestBuilders
-                .delete("/user/1")
+                .delete("/users/1")
             )
             .andExpect(status().isForbidden());
     }
@@ -74,7 +74,7 @@ public class RestApiDemoIntegrationTest {
         mockMvc
             .perform(
                 MockMvcRequestBuilders
-                .get("/user")
+                .get("/users")
                 .header("Authorization", token)
                 .accept(MediaType.APPLICATION_JSON_UTF8_VALUE)
             )
@@ -91,7 +91,7 @@ public class RestApiDemoIntegrationTest {
         mockMvc
             .perform(
                 MockMvcRequestBuilders
-                .get("/user/1")
+                .get("/users/1")
                 .header("Authorization", token)
             )
             .andExpect(status().isOk())
@@ -107,7 +107,7 @@ public class RestApiDemoIntegrationTest {
         mockMvc
             .perform(
                 MockMvcRequestBuilders
-                .get("/user/100")
+                .get("/users/100")
                 .header("Authorization", token)
             )
             .andExpect(status().isNotFound());
@@ -122,7 +122,7 @@ public class RestApiDemoIntegrationTest {
         mockMvc
             .perform(
                 MockMvcRequestBuilders
-                .post("/user")
+                .post("/users")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(getJsonFromFile("responses/getCreatedUserRequest.json"))
                 .header("Authorization", token)
@@ -140,7 +140,7 @@ public class RestApiDemoIntegrationTest {
         mockMvc
             .perform(
                 MockMvcRequestBuilders
-                .delete("/user/1")
+                .delete("/users/1")
                 .contentType(MediaType.APPLICATION_JSON)
                 .header("Authorization", token)
             )
@@ -157,7 +157,7 @@ public class RestApiDemoIntegrationTest {
         mockMvc
             .perform(
                 MockMvcRequestBuilders
-                .delete("/user/100")
+                .delete("/users/100")
                 .contentType(MediaType.APPLICATION_JSON)
                 .header("Authorization", token)
             )
