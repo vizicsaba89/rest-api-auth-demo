@@ -1,0 +1,29 @@
+{
+  "id": 4,
+  "active": true,
+  "address": "address 4",
+  "created": true,
+  "deleted": false,
+  "deletedAt": null,
+  "deletedFlag": null,
+  "email": "newuser@gmail.com",
+  "name": "New User",
+  "phone": "+36 30 453 111",
+  "settlementId": 1,
+  "updated": false,
+  "updatedAt": null,
+  "userType": "BASIC",
+  "userName": "newuser",
+  "settlementsBySettlementId": "Settlement 1",
+  "userByCreatedId": 0,
+  "userByDeletedId": 0,
+  "userByUpdatedId": 0,
+  "userRoles": [
+    {
+      "roles": "ADMIN"
+    },
+    {
+      "roles": "PUBLIC"
+    }
+  ]
+}

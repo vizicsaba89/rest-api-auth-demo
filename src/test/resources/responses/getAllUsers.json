@@ -1,0 +1,89 @@
+[
+  {
+    "id": 1,
+    "active": true,
+    "address": "address 1",
+    "created": true,
+    "createdAt": "2020-05-02T08:00:00",
+    "deleted": false,
+    "deletedAt": null,
+    "deletedFlag": null,
+    "email": "johnsmith@gmail.com",
+    "lastLogin": "2020-05-02T08:00:00",
+    "name": "John Smith",
+    "phone": "+36 30 444 1111",
+    "settlementId": 1,
+    "updated": false,
+    "updatedAt": null,
+    "userType": "BASIC",
+    "userName": "johnsmith",
+    "settlementsBySettlementId": "Settlement 1",
+    "userByCreatedId": 1,
+    "userByDeletedId": 0,
+    "userByUpdatedId": 0,
+    "userRoles": [
+      {
+        "roles": "ADMIN"
+      },
+      {
+        "roles": "PUBLIC"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "active": true,
+    "address": "address 2",
+    "created": true,
+    "createdAt": "2020-03-02T08:00:00",
+    "deleted": false,
+    "deletedAt": null,
+    "deletedFlag": null,
+    "email": "creativetoby@gmail.com",
+    "lastLogin": "2020-05-02T08:00:00",
+    "name": "Creative Toby",
+    "phone": "+36 30 444 2222",
+    "settlementId": 1,
+    "updated": false,
+    "updatedAt": null,
+    "userType": "BASIC",
+    "userName": "creativetoby",
+    "settlementsBySettlementId": "Settlement 1",
+    "userByCreatedId": 1,
+    "userByDeletedId": 0,
+    "userByUpdatedId": 0,
+    "userRoles": [
+      {
+        "roles": "PUBLIC"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "active": true,
+    "address": "address 3",
+    "created": true,
+    "createdAt": "2020-04-02T08:00:00",
+    "deleted": true,
+    "deletedAt": "2020-05-01T10:12:00",
+    "deletedFlag": "DELETED",
+    "email": "jiffyages@gmail.com",
+    "lastLogin": "2020-05-02T08:00:00",
+    "name": "Jiffy Ages",
+    "phone": "+36 30 444 3333",
+    "settlementId": 1,
+    "updated": false,
+    "updatedAt": null,
+    "userType": "BASIC",
+    "userName": "jiffyages",
+    "settlementsBySettlementId": "Settlement 2",
+    "userByCreatedId": 1,
+    "userByDeletedId": 0,
+    "userByUpdatedId": 0,
+    "userRoles": [
+      {
+        "roles": "PUBLIC"
+      }
+    ]
+  }
+]

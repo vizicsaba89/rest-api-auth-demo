@@ -1,0 +1,14 @@
+{
+  "address": "address 4",
+  "email": "newuser@gmail.com",
+  "emailToken": "asd2123",
+  "name": "New User",
+  "phone": "+36 30 453 111",
+  "userType": "BASIC",
+  "userName": "newuser",
+  "settlementId": 1,
+  "settlementsBySettlementId": "Settlement 1",
+  "roles": [
+    "ADMIN", "PUBLIC"
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "id": 1,
+  "active": true,
+  "address": "address 1",
+  "created": true,
+  "createdAt": "2020-05-02T08:00:00",
+  "deleted": false,
+  "deletedAt": null,
+  "deletedFlag": null,
+  "email": "johnsmith@gmail.com",
+  "lastLogin": "2020-05-02T08:00:00",
+  "name": "John Smith",
+  "phone": "+36 30 444 1111",
+  "settlementId": 1,
+  "updated": false,
+  "updatedAt": null,
+  "userType": "BASIC",
+  "userName": "johnsmith",
+  "settlementsBySettlementId": "Settlement 1",
+  "userByCreatedId": 1,
+  "userByDeletedId": 0,
+  "userByUpdatedId": 0,
+  "userRoles": [
+    {
+      "roles": "ADMIN"
+    },
+    {
+      "roles": "PUBLIC"
+    }
+  ]
+}
