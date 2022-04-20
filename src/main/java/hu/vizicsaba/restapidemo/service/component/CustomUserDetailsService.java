@@ -29,11 +29,7 @@ public class CustomUserDetailsService implements UserDetailsService {
             .findByUserName(s)
             .orElseThrow(RestApiDemoNotFoundException::new);
 
-        if (userByUserName.isDeleted() || userByUserName.isPasswordExpired()) {
-            throw new RuntimeException("User is deleted or password is expired");
-        }
-
-        String password = userByUserName.isTempPasswordExpired() ? userByUserName.getPassword() : userByUserName.getTempPassword();
+        String password = userByUserName.getPassword();
         List<UserRoles> userRoles = userByUserName.getUserRoles();
 
         return new User(userByUserName.getUserName(), password, getAuthorities(userRoles));

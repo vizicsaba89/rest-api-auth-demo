@@ -4,6 +4,7 @@ import hu.vizicsaba.restapidemo.service.component.CustomUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
@@ -52,6 +53,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             .permitAll()
             .antMatchers("/users").hasAnyAuthority("ADMIN")
             .antMatchers("/users/{userId}/**").access("hasAuthority('ADMIN') or @userSecurity.hasUserId(authentication,#userId)")
+            .antMatchers(HttpMethod.DELETE, "/todos/**").hasAnyAuthority("ADMIN")
             .anyRequest()
             .authenticated()
             .and()

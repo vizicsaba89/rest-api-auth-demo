@@ -66,21 +66,7 @@ public class UserServiceImpl implements UserService {
 
     private User getUserToCreate(UserRequest userRequest) {
         User user = new User();
-        user.setActive(true);
-        user.setAddress(userRequest.getAddress());
-        user.setCreated(true);
-        user.setCreatedAt(LocalDateTime.now());
-        user.setEmail(userRequest.getEmail());
-        user.setEmailToken(userRequest.getEmailToken());
-        user.setLastLogin(LocalDateTime.now());
-        user.setName(userRequest.getName());
-        user.setPhone(userRequest.getPhone());
-        user.setTempPassword(getTempPassword());
-        user.setTempPasswordExpired(false);
-        user.setUserType(userRequest.getUserType());
         user.setUserName(userRequest.getUserName());
-        user.setSettlementId(userRequest.getSettlementId());
-        user.setSettlementsBySettlementId(userRequest.getSettlementsBySettlementId());
         user.setUserRoles(getUserRolesToCreate(userRequest, user));
 
         return user;
